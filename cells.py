@@ -305,22 +305,21 @@ class Game(object):
             self.winner = -1
 
         self.agent_map.unlock()
-        
+
     def reload_minds (self) :
-		''' Attempts to reload the mind modules. '''
-		for mind in self.mind_list :
-			mindmodule = mind[1]
-			
-			try :
-				reload(mindmodule)
-				print '%s was reloaded.' % str(mind)
-			except :
-				print '%s failed to reload.' % str(mind)
-				
-				
-		self.minds = [m[1].AgentMind for m in self.mind_list]
-			
-			
+        ''' Attempts to reload the mind modules. '''
+        for mind in self.mind_list :
+            mindmodule = mind[1]
+
+            try :
+                reload(mindmodule)
+                print '%s was reloaded.' % str(mind)
+            except :
+                print '%s failed to reload.' % str(mind)
+
+
+        self.minds = [m[1].AgentMind for m in self.mind_list]
+
     def tick(self):
         if not self.headless:
             # Space starts new game
@@ -336,8 +335,8 @@ class Game(object):
                     elif event.key == pygame.locals.K_a:
                          self.show_agents = not self.show_agents
                     elif event.key == pygame.locals.K_r:
-						self.reload_minds()
-						
+                        self.reload_minds()
+
                 elif event.type == pygame.locals.MOUSEBUTTONUP:
                     if event.button == 1:
                         print self.agent_map.get(event.pos[0]/2,
@@ -759,5 +758,3 @@ if __name__ == "__main__":
             game.tick()
             
             
-            
-#/home/rectangletangle/cells/minds/mind1.py
