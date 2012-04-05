@@ -23,8 +23,11 @@ the only thing absolutely required for a mind that doesn't instantly
 lose is this:
 
 class AgentMind:
-      def act(self, view, msg):
-          return cells.Action(cells.ACT_EAT)
+    def __init__(self, junk):
+        self.my_plant = None
+
+    def act(self, view, msg):
+        return cells.Action(cells.ACT_EAT)
 
 
 Minds can have other class methods to assist in writing the act
